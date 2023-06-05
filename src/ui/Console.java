@@ -39,30 +39,11 @@ public class Console {
         return memoList.retrieve(postNum)
                 .orElseThrow(() -> new MemoNotFoundException(postNum + "번에 해당하는 메모가 존재하지 않습니다."));
     }
-//    private Memo findOne() {
-//        Memo memo = null;
-//        // 초기값을 주지 않으면 쓰레기값이 들어감, 필수
-//        int postNum = Integer.parseInt(consoleUtil.getValueOf("수정하실 글의 번호를 입력해주세요"));
-//        // Integer.parseInt 문자열을 정수형으로 변환하는 역할, 게시글 번호를 나타내는 값
-//        // consoleUtil.getValueOf의 값(수정할 글 번호)를 불러옴
-//
-//        memo = memoList.retrieve(postNum);
-//        //memo는 memoList에 있는 retrieve(int postNum)이다
-//
-//        if (memo == null) {
-//            System.out.println("해당 게시글이 존재하지 않습니다.");
-//        } else {
-//            System.out.println(memo.toString());
-//            //else는 게시글이 존재할 때 memo.toString() = memo 객체의 내용을 가지고 있는 문자열을 반환
-//            //-> 게시글 번호 나옴?
-//
-//        }
-//        return memo;
-//    }
+
     public void update() {
         Memo memo = findOne();
         String password = consoleUtil.getValueOf("비밀번호를 입력해주세요");
-        if(memo.getPassword().equals(password)) {
+        if (memo.getPassword().equals(password)) {
             System.out.println("기존 메모 : " + memo.getPost());
             String updatedPost = consoleUtil.getValueOf("수정된 메모");
             memo.setPost(updatedPost);
@@ -90,7 +71,7 @@ public class Console {
             return;
         }
 
-        memoList.delete(memo.getPostNum());
+        memoList.delete(memo.getPostNum() - 1);
         System.out.println("게시글이 성공적으로 삭제되었습니다.");
         // getPostNum(게시물 넘버) 삭제 완료??!
     }

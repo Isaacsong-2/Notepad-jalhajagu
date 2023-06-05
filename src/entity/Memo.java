@@ -33,7 +33,9 @@ public class Memo {
         return password;
     }
 
-    public String getPost() { return post; }
+    public String getPost() {
+        return post;
+    }
 
     public void setPost(String post) {
         this.post = post;

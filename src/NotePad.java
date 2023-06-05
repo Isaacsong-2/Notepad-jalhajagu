@@ -11,7 +11,7 @@ public class NotePad {
         MemoMenu memoMenu = new MemoMenu();
         try {
             memoMenu.show();
-        } catch(MemoNotFoundException e) {
+        } catch (MemoNotFoundException e) {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("메인 메뉴로 돌아갑니다.\n");

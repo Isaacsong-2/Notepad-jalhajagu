@@ -12,26 +12,29 @@ public class MemoList {
         this.memos = new ArrayList<>();
     }
 
-//    @Override
+    //    @Override
     public void create(Memo memo) {
         memos.add(memo);
     }
 
     public Optional<Memo> retrieve(int postNum) {
-        for(Memo memo : memos) {
-            if(memo.getPostNum() == postNum) {
+        for (Memo memo : memos) {
+            if (memo.getPostNum() == postNum) {
                 return Optional.of(memo);
             }
         }
         return Optional.empty();
     }
 
-//    @Override
+    //    @Override
     public void delete(int postNum) {
-
+        for (int i = postNum; i < memos.size(); i++) {
+            memos.get(i).setPostNum(i);
+        }
+        this.memos.remove(postNum);
     }
 
-//    @Override
+    //    @Override
     public ArrayList<Memo> getMemos() {
         return memos;
     }

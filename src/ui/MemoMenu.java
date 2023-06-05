@@ -6,6 +6,7 @@ public class MemoMenu {
 
     private Scanner scanner;
     private Console console;
+
     public MemoMenu() {
         this.scanner = new Scanner(System.in);
         this.console = new Console();
@@ -47,7 +48,7 @@ public class MemoMenu {
         printLine();
     }
 
-    private void printLine(){
+    private void printLine() {
         System.out.println("-----------------------------------");
     }
 
