@@ -3,6 +3,7 @@ package store;
 import entity.Memo;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class MemoList {
     private ArrayList<Memo> memos;
@@ -15,13 +16,13 @@ public class MemoList {
     public void create(Memo memo) {
     }
 
-//    @Override
-    public Memo retrieve(int postNum) {
-        return null;
-    }
-
-//    @Override
-    public void update(Memo updateMemo) {
+    public Optional<Memo> retrieve(int postNum) {
+        for(Memo memo : memos) {
+            if(memo.getPostNum() == postNum) {
+                return Optional.of(memo);
+            }
+        }
+        return Optional.empty();
     }
 
 //    @Override

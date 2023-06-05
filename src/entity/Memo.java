@@ -14,7 +14,7 @@ public class Memo {
         this.name = name;
         this.password = password;
         this.post = post;
-        this.time = DateUtil.today();
+        this.time = DateUtil.now();
     }
 
     public int getPostNum() {
@@ -33,9 +33,11 @@ public class Memo {
         return password;
     }
 
+    public String getPost() { return post; }
+
     public void setPost(String post) {
         this.post = post;
-        this.time = DateUtil.today();
+        this.time = DateUtil.now();
     }
 
     @Override
