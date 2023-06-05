@@ -11,26 +11,27 @@ public class MemoList {
         this.memos = new ArrayList<>();
     }
 
-//    @Override
+    //    @Override
     public void create(Memo memo) {
+        memos.add(memo);
     }
 
-//    @Override
+    //    @Override
     public Memo retrieve(int postNum) {
         return null;
     }
 
-//    @Override
+    //    @Override
     public void update(Memo updateMemo) {
     }
 
-//    @Override
+    //    @Override
     public void delete(int postNum) {
 
     }
 
-//    @Override
+    //    @Override
     public ArrayList<Memo> getMemos() {
-        return null;
+        return memos;
     }
 }
