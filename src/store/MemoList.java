@@ -33,6 +33,6 @@ public class MemoList {
 
 //    @Override
     public ArrayList<Memo> getMemos() {
-        return null;
+        return memos;
     }
 }
