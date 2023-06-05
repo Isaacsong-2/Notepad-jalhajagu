@@ -29,8 +29,12 @@ public class Console {
 
     public void read() { // 메모 조회 기능
         ArrayList<Memo> memos = memoList.getMemos();
-        for (int i = memos.size() - 1; i > -1; i--) {
-            System.out.println(memos.get(i));
+        if (memos.size() != 0) {
+            for (int i = memos.size() - 1; i > -1; i--) {
+                System.out.println(memos.get(i));
+            }
+        } else if (memos.size() == 0) {
+            System.out.println("메모 목록에 메모가 없습니다. 메모를 등록해주세요.");
         }
     }
 
