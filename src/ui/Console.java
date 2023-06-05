@@ -18,6 +18,13 @@ public class Console {
     }
 
     public void register() {
+        ArrayList<Memo> memos = memoList.getMemos();
+        int postNum = memos.size();
+        String name = consoleUtil.getValueOf("name");
+        String password = consoleUtil.getValueOf("password");
+        String post = consoleUtil.getValueOf("post");
+        Memo memo = new Memo(postNum + 1, name, password, post);
+        memoList.create(memo);
     }
 
     public void read() { // 메모 조회 기능

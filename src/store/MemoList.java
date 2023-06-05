@@ -14,6 +14,7 @@ public class MemoList {
 
 //    @Override
     public void create(Memo memo) {
+        memos.add(memo);
     }
 
     public Optional<Memo> retrieve(int postNum) {
