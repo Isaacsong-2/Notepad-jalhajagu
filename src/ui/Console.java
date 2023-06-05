@@ -70,7 +70,7 @@ public class Console {
         } else {
             System.out.println("비밀번호가 일치하지 않습니다.");
         }
-    }1
+    }
 
     public void delete() {
         Memo memo = findOne();
