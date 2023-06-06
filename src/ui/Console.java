@@ -38,14 +38,20 @@ public class Console {
         }
     }
 
-    private Memo findOne() {
+    private Memo findOne(){
         int postNum = Integer.parseInt(consoleUtil.getValueOf("수정할 글 번호를 입력해주세요"));
         return memoList.retrieve(postNum)
                 .orElseThrow(() -> new MemoNotFoundException(postNum + "번에 해당하는 메모가 존재하지 않습니다."));
     }
 
     public void update() {
-        Memo memo = findOne();
+        Memo memo = null;
+        try {
+            memo = findOne();
+        } catch(MemoNotFoundException e){
+            System.out.println(e.getMessage());
+            return;
+        }
         String password = consoleUtil.getValueOf("비밀번호를 입력해주세요");
         if (memo.getPassword().equals(password)) {
             System.out.println("기존 메모 : " + memo.getPost());
