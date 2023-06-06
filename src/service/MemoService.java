@@ -10,7 +10,6 @@ public interface MemoService {
 
     Optional<Memo> find(int postNum);
 
-    void modify(Memo memo);
 
     void remove(int postNum);
 

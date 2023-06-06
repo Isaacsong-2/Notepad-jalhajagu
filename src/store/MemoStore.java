@@ -10,7 +10,6 @@ public interface MemoStore {
 
     Optional<Memo> retrieve(int postNum);
 
-    void update(Memo memo);
 
     void delete(int postNum);
 

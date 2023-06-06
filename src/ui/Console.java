@@ -2,6 +2,8 @@ package ui;
 
 import entity.Memo;
 import exception.MemoNotFoundException;
+import service.MemoService;
+import service.MemoServiceLogic;
 import store.MemoList;
 import util.ConsoleUtil;
 
@@ -10,25 +12,25 @@ import java.util.ArrayList;
 public class Console {
     private ConsoleUtil consoleUtil;
 
-    private MemoList memoList;
+    private MemoService memoService;
 
     public Console() {
         this.consoleUtil = new ConsoleUtil();
-        this.memoList = new MemoList();
+        this.memoService = new MemoServiceLogic();
     }
 
     public void register() {
-        ArrayList<Memo> memos = memoList.getMemos();
+        ArrayList<Memo> memos = memoService.getMemos();
         int postNum = memos.size();
         String name = consoleUtil.getValueOf("name");
         String password = consoleUtil.getValueOf("password");
         String post = consoleUtil.getValueOf("post");
         Memo memo = new Memo(postNum + 1, name, password, post);
-        memoList.create(memo);
+        memoService.register(memo);
     }
 
     public void read() { // 메모 조회 기능
-        ArrayList<Memo> memos = memoList.getMemos();
+        ArrayList<Memo> memos = memoService.getMemos();
         if (memos.size() != 0) {
             for (int i = memos.size() - 1; i > -1; i--) {
                 System.out.println(memos.get(i));
@@ -40,7 +42,7 @@ public class Console {
 
     private Memo findOne(){
         int postNum = Integer.parseInt(consoleUtil.getValueOf("수정할 글 번호를 입력해주세요"));
-        return memoList.retrieve(postNum)
+        return memoService.find(postNum)
                 .orElseThrow(() -> new MemoNotFoundException(postNum + "번에 해당하는 메모가 존재하지 않습니다."));
     }
 
@@ -81,7 +83,7 @@ public class Console {
             return;
         }
 
-        memoList.delete(memo.getPostNum() - 1);
+        memoService.remove(memo.getPostNum() - 1);
         System.out.println("게시글이 성공적으로 삭제되었습니다.");
         // getPostNum(게시물 넘버) 삭제 완료??!
     }

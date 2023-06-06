@@ -26,11 +26,6 @@ public class MemoServiceLogic implements MemoService {
     }
 
     @Override
-    public void modify(Memo memo) {
-        this.memoStore.update(memo);
-    }
-
-    @Override
     public void remove(int postNum) {
         this.memoStore.delete(postNum);
     }

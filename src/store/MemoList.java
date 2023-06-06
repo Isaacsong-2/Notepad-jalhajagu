@@ -28,11 +28,6 @@ public class MemoList implements MemoStore {
     }
 
     @Override
-    public void update(Memo memo) {
-
-    }
-
-    @Override
     public void delete(int postNum) {
         for (int i = postNum; i < memos.size(); i++) {
             memos.get(i).setPostNum(i);
